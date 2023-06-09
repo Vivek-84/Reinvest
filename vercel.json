@@ -1,0 +1,13 @@
+{
+    "builds": [{
+        "src": "ReInvest/wsgi.py",
+        "use": "@ardnt/vercel-python-wsgi",
+        "config": { "maxLambdaSize": "15mb" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "ReInvest/wsgi.py"
+        }
+    ]
+}
