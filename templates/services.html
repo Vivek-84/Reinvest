@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %}Service{% endblock title %}
+
+{% block body %}
+
+<div class="container-fluid px-0 mb-3">
+<img src="https://source.unsplash.com/1200x400/daily/?phone" class="d-block w-100" alt="..."> 
+
+</div> 
+<div class="container" py-4>
+<h1 class ="text-center">Contact Us</h1>
+<form method="post" action="">
+{% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name">
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Your Number">
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+    </div>
+    
+    <h1 class ="text-center">Property Information</h1>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address">
+    </div>
+    <div class="form-group">
+        <label for="streetaddress">Street Address</label>
+        <input type="text" class="form-control" id="streetaddress" name="streetaddress" placeholder="Enter Your Street Address">
+    </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" name="city" placeholder="Enter Your City">
+    </div>
+    <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" class="form-control" id="state" name="state" placeholder="Enter Your State">
+    </div>
+    
+    
+    <div class = "form-group">
+        <label for="abc">What Is Your Interest</label>
+        <select name="abc" id="abc">
+        
+        
+        {% for abc in abc %}
+        <option value="{{ abc}}" >{{ abc }}</option>
+        {% endfor %}
+        </select>
+    </div>
+
+    <div class = "form-group">
+        <label for="status">Property Status</label>
+        <select name="status" id="status">
+        {% for status in status %}
+        <option value="{{ status}}" >{{ status }}</option>
+        {% endfor %}
+        </select>
+    </div> 
+
+    <div class = "form-group">
+        <label for="residential">Residential Type</label>
+        <select name="residential" id="residential">
+        {% for residential in residential %}
+        <option value="{{ residential}}" >{{ residential }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="ybd">Year Built Date</label>
+        <input type="date" class="form-control" id="ybd" name="ybd" placeholder="year build date">
+    </div>
+
+    <div class="form-group">
+        <label for="dop">Date Of Purchase</label>
+        <input type="text" class="form-control" id="dop" name="dop" placeholder="Enter Date Of Purchase">
+    </div>
+    
+    <div class="form-group">
+        <label for="famt">Final Amount</label>
+        <input type="text" class="form-control" id="famt" name="famt" placeholder="Enter Final Amount">
+    </div>
+
+    <div class="form-group">
+        <label for="asf">What Is Approximate  Square Footage</label>
+        <input type="text" class="form-control" id="asf" name="asf" placeholder="Approximate Square Footage">
+    </div>
+
+    <div class="form-group">
+        <label for="loan">Is There Any Loan On This Property</label>
+        <input type="text" class="form-control" id="loan" name="loan" placeholder="Is There Any Loan On This Property Yes or No">
+    </div>
+           
+    <div class="form-group">
+        <label for="desc">Tell me about what you want to contact me for</label>
+        <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+{% endblock body %}
+
+
+

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} Price Prediction{% endblock title %}
+{% block body %} Here You Can Predict Price of Property 
+
+
+
+
+	<div class="card bg-warning text-black ">
+			<div class="card-footer d-flex align-items-center justify-content-between">
+                 <div class="table-responsive">
+                      <table border="0" id="dataTable" width="100%" cellspacing="0">                      
+						   <form method="POST">{%csrf_token%} 
+								<tr>
+									<td><label for="type"> Type(BHK) </label>
+										<input type="text" name="type" class="form-control" placeholder="between 1-6" required>
+									</td>	
+									<td><label for="carpetarea"> Carpet Area(sqft) </label>
+										<input type="text" name="carpetarea" class="form-control" placeholder="enter carpet area" required>
+									</td>
+								</tr>
+								<tr>
+									<td><label for="metrodistence"> Distence From Metro(Km) </label>
+										<input type="text" name="metrodistence" class="form-control" placeholder="how much distence from metro are you looking for" required>
+									</td>
+									<td><label for="ecodistence"> Distence From Economic Zone(Km) </label>
+										<input type="text" name="ecodistence" class="form-control" placeholder="how much distence from Economic Zone are you looking for" required>
+									</td>
+								</tr>	
+								<tr>
+									<td><label for="malldistence"> Distence From Mall(Km)</label>
+										<input type="text" name="malldistence" class="form-control" placeholder="how much distence from Mall you are looking for" required>
+									</td>
+									
+								</tr>		
+								
+								<tr><input type="submit" name="submit" class="form-control btn btn-primary" value="Submit"></tr>
+							</form>
+					</table>
+				</div>
+			</div>
+        </div>
+	</form>
+    {% if prediction %}
+        <h2>Prediction Result: {{ prediction }}</h2>
+    {% endif %}
+		
+	{% endblock %}
